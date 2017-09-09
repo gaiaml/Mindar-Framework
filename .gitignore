@@ -61,3 +61,5 @@ dump.rdb
 #Icon?
 ehthumbs.db
 Thumbs.db
+
+/vendor/

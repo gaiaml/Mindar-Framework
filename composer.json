@@ -1,0 +1,16 @@
+{
+    "name": "mindar/framework",
+    "description": "php micro framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "damnedx",
+            "email": "damnedx@mindar.io"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4" : {"Mindar\\Core\\" : "core"}
+    }
+}

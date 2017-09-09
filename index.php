@@ -6,5 +6,8 @@
  * @copyright Copyright (c) 2017-2018 damnedx
  * @license   MIT License
  */
-use Mindar\Core\Autoloader;
+require "vendor/autoload.php";
 
+use Mindar\Core\App;
+
+App::run();
