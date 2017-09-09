@@ -7,7 +7,7 @@
  * @license   MIT License
  */
 
-namespace Core\Router;
+namespace Mindar\Core\Router;
 
 class Router
 {

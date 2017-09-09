@@ -9,5 +9,3 @@
 require "vendor/autoload.php";
 
 use Mindar\Core\App;
-
-App::run();

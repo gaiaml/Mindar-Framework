@@ -9,12 +9,50 @@
 
 namespace Mindar\Core;
 
+use Mindar\Core\HTTP\Request;
+use Mindar\core\HTTP\Request\HttpRequest;
+use Mindar\Core\HTTP\Response;
+use Mindar\core\HTTP\Response\HttpResponse;
 
 class App
 {
+    protected $httpRequest;
+    protected $httpResponse;
+    protected $name;
 
-    static function run() : void
+    /**
+     * @return mixed
+     */
+    public function getHttpRequest()
     {
-        echo 'ok';
+        return $this->httpRequest;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getHttpResponse()
+    {
+        return $this->httpResponse;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function run()
+    {
+
+    }
+
+    public function __construct()
+    {
+        $this->httpRequest = new HttpRequest();
+        $this->httpResponse = new HttpResponse();
+    }
+
 }
