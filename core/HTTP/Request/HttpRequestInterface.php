@@ -18,6 +18,7 @@ interface HttpRequestInterface
 
     public function requestURI() : string;
 
+    public function requestMethod(): ?string;
 
 
 }

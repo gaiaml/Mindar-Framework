@@ -6,7 +6,7 @@
  * Time: 19:14
  */
 
-namespace Mindar\core\HTTP\Response;
+namespace Mindar\Core\HTTP\Response;
 
 
 class HttpResponse implements HttpResponseInterface

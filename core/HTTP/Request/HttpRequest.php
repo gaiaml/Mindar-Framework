@@ -6,7 +6,7 @@
  * Time: 19:02
  */
 
-namespace Mindar\core\HTTP\Request;
+namespace Mindar\Core\HTTP\Request;
 
 
 class HttpRequest implements HttpRequestInterface
@@ -26,5 +26,10 @@ class HttpRequest implements HttpRequestInterface
     public function requestURI(): string
     {
         return $_SERVER['REQUEST_URI'];
+    }
+
+    public function requestMethod(): ?string
+    {
+        return $_SERVER['REQUEST_METHOD'];
     }
 }

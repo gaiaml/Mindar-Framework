@@ -9,50 +9,33 @@
 
 namespace Mindar\Core;
 
-use Mindar\Core\HTTP\Request;
-use Mindar\core\HTTP\Request\HttpRequest;
-use Mindar\Core\HTTP\Response;
-use Mindar\core\HTTP\Response\HttpResponse;
+use Mindar\Core\Dispatcher\Route;
+use Mindar\Core\Dispatcher\Router;
+
 
 class App
 {
-    protected $httpRequest;
-    protected $httpResponse;
-    protected $name;
-
-    /**
-     * @return mixed
-     */
-    public function getHttpRequest()
-    {
-        return $this->httpRequest;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getHttpResponse()
-    {
-        return $this->httpResponse;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function run()
-    {
-
-    }
+    private $router;
 
     public function __construct()
     {
-        $this->httpRequest = new HttpRequest();
-        $this->httpResponse = new HttpResponse();
+        $this->router = new Router($_GET['url']);
     }
 
+    public function run() : void
+    {
+        $this->router->run();
+    }
+
+    public function get(string $name, $callable)
+    {
+
+        return $this->router->get($name, $callable);
+
+    }
+
+    public function post(string $name, $callable)
+    {
+        return $this->router->post($name, $callable);
+    }
 }
