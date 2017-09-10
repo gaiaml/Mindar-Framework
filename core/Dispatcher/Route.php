@@ -17,7 +17,8 @@ class Route
      */
     private $path;
     private $callable;
-    private $matches;
+    private $matches = [];
+    private $params = [];
 
     /**
      * Route constructor.
@@ -34,7 +35,7 @@ class Route
     public function match(string $name) : bool
     {
         $name = trim($name, '/');
-        $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
+        $path = preg_replace_callback('#:([\w]+)#', [$this, "paramConstraints"], $this->path);
 
         $regex = "#^$path$#i";
         if(!preg_match($regex, $name, $matches))
@@ -43,6 +44,19 @@ class Route
         array_shift($matches);
         $this->matches = $matches;
         return true;
+    }
+    public function with($param, $regex)
+    {
+        $this->params[$param] = str_replace('(', '(?:',$regex);
+        return $this;
+    }
+
+    private function paramConstraints($match) : string
+    {
+        if(isset($this->params[$match[1]])){
+            return '(' . $this->params[$match[1]] . ')';
+        }
+        return '([^/]+)';
     }
 
     public function call()

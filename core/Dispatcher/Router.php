@@ -39,19 +39,19 @@ class Router
      * @param $callable
      * @return HttpResponse
      */
-    public function get(string $name, $callable) : HttpResponse
+    public function get(string $name, $callable) : Route
     {
         $route = new Route($name, $callable);
         $this->routes['GET'][] = $route;
-        return $this->httpResponse;
+        return $route;
 
     }
 
-    public function post(string $name, $callable) : HttpResponse
+    public function post(string $name, $callable) : Route
     {
         $route = new Route($name, $callable);
         $this->routes['POST'][] = $route;
-        return $this->httpResponse;
+        return $route;
 
     }
 
